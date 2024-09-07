@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import { useState } from "react";
 
 //import images and graphics ressources here
-import pokemonlogo from "./pokemon.svg";
+import pokemonlogo from "./assets/images/pokemon.svg";
 
 //import pages here
 import Home from "./components/Home";
