@@ -100,7 +100,7 @@ const Pokemons = () => {
           name="searchbar"
           id="searchbar"
           placeholder="&#x1F50D; | ex: search for pikachu"
-          onChange={(e) => {
+          onInput={(e) => {
             setSearchName(e.target.value);
           }}
         />
