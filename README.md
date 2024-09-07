@@ -1,0 +1,2 @@
+#WELCOME TO THIS PROJECT
+##TECHNICAL TEST FOR BLING (web dev intership)

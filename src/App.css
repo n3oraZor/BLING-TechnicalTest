@@ -1,0 +1,82 @@
+#root {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  background: #ffcb03;
+  cursor: pointer;
+  font-family: "PressStart", sans-serif;
+}
+
+.container-global {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.disclaimer {
+  color: transparent;
+  height: 10vh;
+}
+.explore-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#pokeball {
+  height: 40px;
+  width: 40px;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#pokemonlogo {
+  height: 30vh;
+  width: 60vw;
+}
+
+#pokedex {
+  width: 40vw;
+  max-width: 300px;
+  height: 10vh;
+  border-radius: 25px;
+  font-family: "PressStart", sans-serif;
+
+  font-size: 1rem;
+  a {
+    text-decoration: none;
+  }
+}
+
+.p-explore {
+  margin: 10px;
+  padding: 10px;
+  font-weight: bold;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.pokedex-container {
+  margin: 50px auto;
+}
+
+.hide-button {
+  display: none;
+}
+
+.show-button {
+  display: flex;
+}
+
+@media (max-width: 600px) {
+  #pokedex {
+    font-size: 0.6rem;
+  }
+}
