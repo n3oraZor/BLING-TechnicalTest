@@ -10,9 +10,13 @@
     margin: 20px auto;
   }
 
+  .element-type {
+    text-align: center;
+  }
+
   #img1,
   #img2 {
-    height: 200px;
+    height: 120px;
     width: auto;
   }
 
@@ -26,7 +30,7 @@
   padding: 20px auto;
   justify-content: center;
   align-items: center;
-  width: 15vw;
+  width: 50vw;
   max-width: 160px;
   height: 40px;
   border-radius: 25px;
