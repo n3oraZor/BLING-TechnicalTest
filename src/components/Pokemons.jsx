@@ -37,7 +37,7 @@ const Pokemons = () => {
     if (data && data.results) {
       searchName && setIsLimit(data.count);
       const filterPokemon = data.results.filter((pokemon) =>
-        pokemon.name.includes(searchName)
+        pokemon.name.toLowerCase().includes(searchName)
       );
       setSearchState(filterPokemon);
     }
@@ -101,7 +101,7 @@ const Pokemons = () => {
           id="searchbar"
           placeholder="&#x1F50D; | ex: search for pikachu"
           onInput={(e) => {
-            setSearchName(e.target.value);
+            setSearchName(e.target.value.toLowerCase());
           }}
         />
       </form>
