@@ -33,6 +33,7 @@ const Pokemons = () => {
   };
 
   //Function to filter POKEMON, avoid null value and update islimit value to fetch all datas
+  //Lower case mandatory to prevent mobile 1rst letter in cap
   const filteredPokemon = () => {
     if (data && data.results) {
       searchName && setIsLimit(data.count);
