@@ -8,6 +8,11 @@
   font-family: "PressStart", sans-serif;
 }
 
+body {
+  margin: 0;
+  padding: 0;
+}
+
 .container-global {
   display: flex;
   flex-direction: column;
@@ -44,7 +49,7 @@ body {
 }
 
 #pokedex {
-  width: 40vw;
+  width: 80vw;
   max-width: 300px;
   height: 10vh;
   border-radius: 25px;
@@ -79,5 +84,16 @@ body {
 @media (max-width: 600px) {
   #pokedex {
     font-size: 0.6rem;
+  }
+
+  .container-sprites {
+    display: flex;
+    flex-direction: column;
+    width: 150px;
+    height: 300px;
+  }
+
+  #img1 {
+    display: flex;
   }
 }

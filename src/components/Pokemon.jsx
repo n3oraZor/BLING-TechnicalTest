@@ -1,36 +1,33 @@
 import { useState, useEffect } from "react";
-import { useParams, Navigate, Link } from "react-router-dom";
+import { useParams, useNavigate, Navigate } from "react-router-dom";
 import axios from "axios";
+import fetchData from "../assets/FetchData";
 
 //import style here
 import "../assets/stylesheet/pokemon.css";
 
 const Pokemon = () => {
+  // UseNavigate
+  const navigate = useNavigate();
   // destructured ID we get when clicking on a particular elem to dispay pokemon page
   const { id } = useParams();
   //data from axios
   const [data, setData] = useState(null);
   //wait all datas to be fetched to display page
-  const [isloading, setLoading] = useState(true);
+  const [isloading, setIsLoading] = useState(true);
   // useState in case link is modified by user to prevent bad UX
   const [notFound, setNotFound] = useState(false);
 
-  //fetch external ata using AXIOS
-  const fetchData = async () => {
-    try {
-      const response = await axios.get(
-        `https://pokeapi.co/api/v2/pokemon/${id}`
-      );
-      setData(response.data);
-      setLoading(false);
-    } catch (error) {
-      setNotFound(true);
-      console.log(error.message);
-    }
-  };
+  const settings = id;
+
+  //fetch external ata using AXIOS & rerender fetchData on isLimit
   useEffect(() => {
-    fetchData();
+    fetchData(setData, setIsLoading, setNotFound, settings);
   }, [id]);
+
+  const returnHome = () => {
+    navigate("/Pokemons");
+  };
 
   //is notFound is true, display all query page
   return notFound ? (
@@ -61,9 +58,10 @@ const Pokemon = () => {
           return <p key={index}>TYPE: {elem.type.name.toUpperCase()}</p>;
         })}
       </div>
-      <Link to="/pokemons">
-        <button id="goback">RETURN TO POKEDEX</button>
-      </Link>
+
+      <button id="goback" onClick={returnHome}>
+        RETURN TO POKEDEX
+      </button>
     </div>
   );
 };

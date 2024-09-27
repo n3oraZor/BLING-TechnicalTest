@@ -1,36 +1,34 @@
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import fetchData from "../assets/FetchData";
 
 //import style here
 import "../assets/stylesheet/pokemons.css";
 
 const Pokemons = () => {
   //list of useState
+  //fetchonly first 20 pokemons
+  const [isLimit, setIsLimit] = useState(20);
   //data from axios
   const [data, setData] = useState(null);
   //wait all datas to be fetched to display page
   const [isLoading, setIsLoading] = useState(true);
-  //change fetching limit from external API if needed
-  const [isLimit, setIsLimit] = useState(20);
-
+  //searchfunction
   const [searchName, setSearchName] = useState("");
   const [searchState, setSearchState] = useState([]);
+  // useState in case link is modified by user to prevent bad UX
+  const [notFound, setNotFound] = useState(false);
 
-  //fetch external ata using AXIOS
-  const fetchData = async () => {
-    try {
-      const response = await axios.get(
-        `https://pokeapi.co/api/v2/pokemon/?limit=${isLimit}`
-      );
-      //store response in useState
-      setData(response.data);
-      //update useState value to display result (rerendered)
-      setIsLoading(false);
-    } catch (error) {
-      console.log(error.message);
-    }
-  };
+  const settings = `?limit=${isLimit}`;
+
+  //fetch external ata using AXIOS & rerender fetchData on isLimit
+  useEffect(() => {
+    console.log(settings);
+    fetchData(setData, setIsLoading, setNotFound, settings);
+  }, [isLimit]);
+
+  //
 
   //Function to filter POKEMON, avoid null value and update islimit value to fetch all datas
   //Lower case mandatory to prevent mobile 1rst letter in cap
@@ -49,11 +47,6 @@ const Pokemons = () => {
   const nextPokemons = () => {
     setIsLimit(isLimit + 20);
   };
-
-  //rerender fetchData on isLimit
-  useEffect(() => {
-    fetchData();
-  }, [isLimit]);
 
   //rerender filteredPokemon on searchName
   useEffect(() => {

@@ -17,7 +17,7 @@ import "./App.css";
 function App() {
   const [togglePokedex, setTogglePokedex] = useState(false);
 
-  const TEST = () => {
+  const TogglePokedexFunction = () => {
     setTogglePokedex(!togglePokedex);
   };
 
@@ -40,7 +40,7 @@ function App() {
         <div className="pokedex-container">
           <button
             id="pokedex"
-            onClick={TEST}
+            onClick={TogglePokedexFunction}
             style={{
               border: togglePokedex ? "solid 3px red" : "solid 5px #3369b2",
               height: togglePokedex ? "5vh" : "10vh",
